@@ -4,7 +4,7 @@
 
 - [HelloProcessor](processor/src/main/kotlin/dev/namhyun/example/processor/HelloProcessor.kt)
 
-  Generate extension hello function to class
+  Generate hello extension function to class
 
   - Source
   ```kotlin
