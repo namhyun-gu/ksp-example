@@ -56,3 +56,31 @@
     override fun minus(a: Int, b: Int): Int = calculator.minus(a, b)
   }
   ```
+
+- [RepositoryProcessor](processor/src/main/kotlin/dev/namhyun/example/processor/RepositoryProcessor.kt)
+
+  - Source
+
+  ```kotlin
+  @Repository
+  data class Todo(@PrimaryKey val id: Int, val title: String, val content: String)
+  ```
+
+  - Generated
+
+  ```kotlin
+  import kotlin.Int
+  import kotlin.collections.List
+
+  interface TodoRepository {
+    fun create(Todo: Todo)
+
+    fun readAll(): List<Todo>
+
+    fun read(id: Int)
+
+    fun update(Todo: Todo)
+
+    fun delete(id: Int)
+  }
+  ```

@@ -1,2 +1,3 @@
 dev.namhyun.example.processor.HelloProcessor
 dev.namhyun.example.processor.AbstractionProcessor
+dev.namhyun.example.processor.RepositoryProcessor
