@@ -45,6 +45,15 @@ class RepositoryProcessor : SymbolProcessor {
             val repositoryName = "${className}Repository"
             val file = codeGenerator.createNewFile(packageName, repositoryName)
 
+            var useCoroutine = false
+            parent.annotations.forEach { annotation ->
+                if (annotation.annotationType.resolve()?.declaration?.qualifiedName!!.asString()
+                    == "dev.namhyun.example.processor.UseCoroutine"
+                ) {
+                    useCoroutine = true
+                }
+            }
+
             var primaryKey: ParameterSpec? = null
             function.parameters.forEach {
                 val name = it.name!!.asString()
@@ -70,13 +79,23 @@ class RepositoryProcessor : SymbolProcessor {
                 .build()
 
             val readAllFunc = FunSpec.builder("readAll")
-                .addModifiers(KModifier.ABSTRACT)
+                .addModifiers(
+                    if (useCoroutine) listOf(
+                        KModifier.SUSPEND,
+                        KModifier.ABSTRACT
+                    ) else listOf(KModifier.ABSTRACT)
+                )
                 .returns(LIST.parameterizedBy(listOf(ClassName.bestGuess(parent.qualifiedName!!.asString()))))
                 .build()
 
             val readFunc = FunSpec.builder("read")
                 .addParameter(primaryKey!!)
-                .addModifiers(KModifier.ABSTRACT)
+                .addModifiers(
+                    if (useCoroutine) listOf(
+                        KModifier.SUSPEND,
+                        KModifier.ABSTRACT
+                    ) else listOf(KModifier.ABSTRACT)
+                )
                 .build()
 
             val updateFunc = FunSpec.builder("update")

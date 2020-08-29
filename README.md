@@ -64,23 +64,48 @@
   ```kotlin
   @Repository
   data class Todo(@PrimaryKey val id: Int, val title: String, val content: String)
+
+  @Repository
+  @UseCoroutine
+  data class CoroutineTodo(@PrimaryKey val id: Int, val title: String, val content: String)
   ```
 
   - Generated
 
-  ```kotlin
-  import kotlin.Int
-  import kotlin.collections.List
+    - TodoRepository.kt
 
-  interface TodoRepository {
-    fun create(Todo: Todo)
+    ```kotlin
+    import kotlin.Int
+    import kotlin.collections.List
 
-    fun readAll(): List<Todo>
+    interface TodoRepository {
+      fun create(Todo: Todo)
 
-    fun read(id: Int)
+      fun readAll(): List<Todo>
 
-    fun update(Todo: Todo)
+      fun read(id: Int)
 
-    fun delete(id: Int)
-  }
-  ```
+      fun update(Todo: Todo)
+
+      fun delete(id: Int)
+    }
+    ```
+
+    - CoroutineTodoRepository.kt
+
+    ```kotlin
+    import kotlin.Int
+    import kotlin.collections.List
+
+    interface CoroutineTodoRepository {
+      fun create(CoroutineTodo: CoroutineTodo)
+
+      suspend fun readAll(): List<CoroutineTodo>
+
+      suspend fun read(id: Int)
+
+      fun update(CoroutineTodo: CoroutineTodo)
+
+      fun delete(id: Int)
+    }
+    ```
