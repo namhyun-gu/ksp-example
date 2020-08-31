@@ -83,7 +83,7 @@
 
       fun readAll(): List<Todo>
 
-      fun read(id: Int)
+      fun read(id: Int): Todo
 
       fun update(Todo: Todo)
 
@@ -102,7 +102,7 @@
 
       suspend fun readAll(): List<CoroutineTodo>
 
-      suspend fun read(id: Int)
+      suspend fun read(id: Int): CoroutineTodo
 
       fun update(CoroutineTodo: CoroutineTodo)
 

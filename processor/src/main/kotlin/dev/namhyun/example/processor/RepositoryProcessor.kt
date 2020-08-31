@@ -96,6 +96,7 @@ class RepositoryProcessor : SymbolProcessor {
                         KModifier.ABSTRACT
                     ) else listOf(KModifier.ABSTRACT)
                 )
+                .returns(ClassName.bestGuess(parent.qualifiedName!!.asString()))
                 .build()
 
             val updateFunc = FunSpec.builder("update")

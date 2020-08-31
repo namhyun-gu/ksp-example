@@ -21,7 +21,7 @@ fun main() {
             TODO("Not yet implemented")
         }
 
-        override fun read(id: Int) {
+        override fun read(id: Int): Todo {
             TODO("Not yet implemented")
         }
 
@@ -43,7 +43,7 @@ fun main() {
             TODO("Not yet implemented")
         }
 
-        override suspend fun read(id: Int) {
+        override suspend fun read(id: Int): CoroutineTodo {
             TODO("Not yet implemented")
         }
 
