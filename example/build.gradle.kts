@@ -1,5 +1,5 @@
 plugins {
-    id("kotlin-ksp") version "1.4.0-rc-dev-experimental-20200814"
+    id("com.google.devtools.ksp") version "1.5.30-1.0.0"
     kotlin("jvm")
 }
 
@@ -7,8 +7,6 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
-    google()
 }
 
 dependencies {
@@ -21,3 +19,12 @@ ksp {
     arg("option1", "value1")
     arg("option2", "value2")
 }
+
+//kotlin {
+//    sourceSets.main {
+//        kotlin.srcDir("build/generated/ksp/main/kotlin")
+//    }
+//    sourceSets.test {
+//        kotlin.srcDir("build/generated/ksp/test/kotlin")
+//    }
+//}

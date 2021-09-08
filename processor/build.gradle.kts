@@ -6,14 +6,11 @@ group = "dev.namhyun.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
     mavenCentral()
-    google()
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlin:kotlin-symbol-processing-api:1.4.0-rc-dev-experimental-20200814")
+    implementation("com.google.devtools.ksp:symbol-processing-api:1.5.30-1.0.0")
     implementation("com.squareup:kotlinpoet:1.6.0")
 }
 

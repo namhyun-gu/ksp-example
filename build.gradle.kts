@@ -1,10 +1,10 @@
 plugins {
-    kotlin("jvm") version "1.4.0-rc" apply false
+    kotlin("jvm") version "1.5.30" apply false
 }
 
 buildscript {
     dependencies {
-        classpath(kotlin("gradle-plugin", version = "1.4.0-rc"))
+        classpath(kotlin("gradle-plugin", version = "1.5.30"))
     }
 
     repositories {
